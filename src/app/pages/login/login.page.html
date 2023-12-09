@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-xl="6" size-lg="6" size-md="8" size="12">
+        <div class="ion-padding">
+          <div>
+            <h2>
+              <ion-text>Sign in</ion-text>
+            </h2>
+            <p >
+              <ion-text>
+                Please enter your data !
+              </ion-text>
+            </p>
+          </div>
+          <div class="form">
+            <form action="" [formGroup]="myForm">
+              <ion-list>
+                <ion-item>
+                  <ion-label position="floating" color="medium">username</ion-label>
+                  <ion-input type="text" formControlName="username"></ion-input>
+                </ion-item>
+                <div class="ion-margin-top" *ngIf="username?.hasError('required') && username?.touched">
+                  <ion-text slot="start" color="danger">Username is required</ion-text>
+                </div>
+                <ion-item>
+                  <ion-label position="floating" color="medium">password</ion-label>
+                  <ion-input type="password" formControlName="password"></ion-input>
+                </ion-item>
+                <div class="ion-margin-top"  *ngIf="password?.hasError('required') && password?.touched">
+                  <ion-text slot="start" color="danger">Password is required</ion-text>
+                </div>
+              </ion-list>
+              <ion-button expand="block" color="primary" [disabled]="myForm.invalid" (click)="Onsubmite()">LOGIN</ion-button> 
+            </form>
+          </div>
+          
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

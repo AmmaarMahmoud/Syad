@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="hideModel()">
+      <ion-icon name="caret-back-outline" slot="icon-only"></ion-icon>
+    </ion-buttons>
+    <ion-title>dispaly-image</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div>
+    <ion-img [src]="image" [style.transform]="'scale('+scale+')'"></ion-img>
+  </div>
+</ion-content>
+
+<ion-footer>
+
+  <div class="Tabs" class="ion-align-item-center">
+    <ion-button  (click)="ZoomIn()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-button>
+    <ion-button  (click)="ZoomOut()">
+      <ion-icon name="remove-outline"></ion-icon>
+    </ion-button>
+    <ion-button  (click)="Share()">
+      <ion-icon name="navigate-outline"></ion-icon>
+    </ion-button>
+  </div>
+
+</ion-footer>

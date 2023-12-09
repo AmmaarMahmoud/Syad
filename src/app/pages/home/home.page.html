@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-grid>
+    <ion-row class="ion-align-item-center">
+      <ion-col size-xl="6" offset-xl="3" size-lg="6" offset-lg="3" size-md="8" offset-md="2" size="12">
+        <ion-toolbar color="primary">
+          <ion-title>Home</ion-title>
+          <ion-button slot="end" (click)="logout()">logout</ion-button>
+        </ion-toolbar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row class="ion-align-item-center">
+      <ion-col size-xl="6" offset-xl="3" size-lg="6" offset-lg="3" size-md="8" offset-md="2" size="12">
+        <ion-list>
+          <ion-item *ngFor="let file of images">
+            <ion-thumbnail slot="start" (click)="showModel(file?.data ,file?.path)">
+              <ion-img [src]="file.data"></ion-img>
+            </ion-thumbnail>
+            <ion-label>
+              {{file.name}}
+            </ion-label>
+         
+            <ion-button slot="end" fill="clear" (click)="deleteUpload(file)">
+              <ion-icon slot="icon-only" name="trash"></ion-icon>
+            </ion-button>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row class="ion-align-item-center">
+        <ion-col size-xl="6" offset-xl="3" size-lg="6" offset-lg="3" size-md="8" offset-md="2" size="12">
+          <ion-button expand="block" (click)="OpenCamera()">
+            <ion-icon name="camera-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size-xl="6" offset-xl="3" size-lg="6" offset-lg="3" size-md="8" offset-md="2" size="12">
+          <ion-button expand="block" (click)="OpenGallary()">
+            <ion-icon name="image-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
