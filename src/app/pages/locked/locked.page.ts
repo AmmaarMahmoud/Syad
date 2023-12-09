@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { BiometricAuth, BiometryType, CheckBiometryResult } from '@aparajita/capacitor-biometric-auth'
-import { AccessService } from 'src/app/services/access/access.service';
 // import 'capacitor-biometric-auth'
 @Component({
   selector: 'app-locked',
@@ -11,9 +10,6 @@ import { AccessService } from 'src/app/services/access/access.service';
 export class LockedPage implements OnInit {
   biometryType?: BiometryType;
   isAvailable = false;
-//   ShowFallBack = true
-//   password=12345
-//   hasBiometricAuth=false
   constructor(  private modalCtr:ModalController) { }
 
 
@@ -44,7 +40,7 @@ export class LockedPage implements OnInit {
     }
   }
   dissmisLockScreen(){
-    this.modalCtr.dismiss({reset:true})
+    this.modalCtr.dismiss({reset:false})
   }
 checkBioAvailable() {
   return new Promise<boolean>(async (resolve) => {
